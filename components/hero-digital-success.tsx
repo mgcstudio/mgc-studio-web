@@ -22,7 +22,7 @@ export const HeroDigitalSuccess = () => {
   }, [])
 
   useEffect(() => {
-    (async function () {
+    (async function() {
       const cal = await getCalApi({ namespace: process.env.NEXT_PUBLIC_CAL_BOOK_A_CALL || '' })
       cal('ui', { hideEventTypeDetails: false, layout: 'month_view' })
     })()
@@ -43,7 +43,7 @@ export const HeroDigitalSuccess = () => {
             height: '100vh',
           }}
           lazyLoad={false}
-          pixelDensity={1}
+          pixelDensity={isMobile ? 0.7 : 1}
           pointerEvents="none"
         >
           <ShaderGradient
@@ -86,16 +86,16 @@ export const HeroDigitalSuccess = () => {
           />
         </ShaderGradientCanvas>
       </Suspense>
-      
+
       {/* All content wrapper - hidden until shader loads */}
-      <div 
+      <div
         className={`relative z-10 flex flex-col min-h-screen transition-opacity duration-500 ${shaderLoaded ? 'opacity-100' : 'opacity-0'}`}
       >
         {isMobile && (
-          <div className="flex gap-4 justify-between items-center px-10 pt-4">
+          <header className="flex gap-4 justify-between items-center px-4 pt-4">
             <MotionDrawer
               direction="left"
-              width={300}
+              width={260}
               backgroundColor={'#000000'}
               clsBtnClassName="bg-neutral-800 border-r border-neutral-900 text-white"
               contentClassName="bg-black border-r border-neutral-900 text-white"
@@ -137,12 +137,12 @@ export const HeroDigitalSuccess = () => {
             </MotionDrawer>
             <CalEmbed
               calLink={process.env.NEXT_PUBLIC_CAL_BOOK_A_CALL || ''}
-              className="flex items-center gap-2 w-fit px-8 py-4 rounded-full font-bold text-lg bg-neutral-800 text-white cursor-pointer hover:bg-neutral-700 transition-colors"
+              className="flex items-center gap-2 w-fit px-5 py-2.5 rounded-full font-bold text-sm bg-neutral-800 text-white cursor-pointer hover:bg-neutral-700 transition-colors"
             >
               <span className="w-2 h-2 rounded-full bg-red-500"></span>
-              <span className="text-sm font-medium">Book a call</span>
+              <span className="text-xs font-medium">Book a call</span>
             </CalEmbed>
-          </div>
+          </header>
         )}
         {/* Header */}
         {!isMobile && (
@@ -182,8 +182,8 @@ export const HeroDigitalSuccess = () => {
         )}
 
         {/* Main Hero Content */}
-        <div className="grow flex flex-col justify-center px-12 md:px-24">
-          <h1 className="flex flex-col xl:flex-row text-[10vw] xl:text-[6.5vw] font-medium leading-[100%] items-baseline gap-x-8 gap-y-2 pb-10">
+        <div className="grow flex flex-col justify-center px-5 md:px-12 lg:px-24">
+          <h1 className="flex flex-col xl:flex-row text-[8vw] sm:text-[10vw] xl:text-[6.5vw] font-medium leading-[100%] items-baseline gap-x-8 gap-y-2 pb-6 md:pb-10">
             Unlocking
             <span className="bg-clip-text text-transparent bg-linear-to-r from-white via-red-500 to-red-500 pb-8 xl:inline-block block">
               Digital Success
@@ -194,20 +194,20 @@ export const HeroDigitalSuccess = () => {
             <div className="flex flex-wrap justify-start gap-4">
               <CalEmbed
                 calLink={process.env.NEXT_PUBLIC_CAL_BOOK_CONSULTATION || ''}
-                className="cursor-pointer relative group overflow-hidden bg-white text-black px-8 py-4 rounded-full font-medium text-lg flex items-center gap-3 shadow-[0_0_20px_rgba(255,60,60,0.4)] hover:shadow-[0_0_30px_rgba(255,60,60,0.6)] transition-shadow"
+                className="cursor-pointer relative group overflow-hidden bg-white text-black px-5 py-3 md:px-8 md:py-4 rounded-full font-medium text-base md:text-lg flex items-center gap-3 shadow-[0_0_20px_rgba(255,60,60,0.4)] hover:shadow-[0_0_30px_rgba(255,60,60,0.6)] transition-shadow"
               >
                 <img
                   src="https://picsum.photos/seed/ds/50"
-                  className="w-6 h-6 rounded-full"
+                  className="w-5 h-5 md:w-6 md:h-6 rounded-full"
                   alt=""
                 />
                 Book a Consultation
               </CalEmbed>
-              <button className="cursor-pointer border border-white/20 bg-white/5 backdrop-blur-md px-8 py-4 rounded-full font-medium text-lg">
+              <button className="cursor-pointer border border-white/20 bg-white/5 backdrop-blur-md px-5 py-3 md:px-8 md:py-4 rounded-full font-medium text-base md:text-lg">
                 More about us
               </button>
             </div>
-            <p className="max-w-md text-neutral-100 text-xl font-light leading-relaxed">
+            <p className="max-w-md text-neutral-100 text-base md:text-xl font-light leading-relaxed">
               We are a full-stack agency creating captivating web experiences,
               driving e-commerce growth, and maximizing digital impact.
             </p>
@@ -215,8 +215,8 @@ export const HeroDigitalSuccess = () => {
         </div>
 
         {/* Footer Info */}
-        <div className="p-12 flex flex-wrap justify-end items-end">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-12 gap-y-4 bg-black/20 backdrop-blur-lg p-4 rounded-lg">
+        <div className="p-4 md:p-8 lg:p-12 flex flex-wrap justify-end items-end">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 md:gap-x-12 gap-y-4 bg-black/20 backdrop-blur-lg p-4 rounded-lg">
             <div>
               <p className="text-white text-sm mb-1">Web Design</p>
               <p className="text-neutral-300 text-xs">Ecommerce Design</p>
