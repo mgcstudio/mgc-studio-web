@@ -1,0 +1,10 @@
+lower opacity for shader
+
+---
+
+▣ DCP | -4.3K removed, +106 summary
+
+│⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿██████████│
+▣ Compression #1 -4.3K removed, +106 summary
+→ Topic: Shader opacity change
+→ Items: 4 messages and 4 tools compressed
